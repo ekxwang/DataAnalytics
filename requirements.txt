@@ -2,6 +2,5 @@ streamlit
 pandas
 numpy
 matplotlib
-option_menu
 ast
 base64
