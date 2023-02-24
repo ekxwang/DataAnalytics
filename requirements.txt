@@ -2,12 +2,10 @@ streamlit
 pandas
 numpy
 image
-random
 matplotlib.pyplot
 math
 csv
 io
 option_menu
 ast
-os
 base64
