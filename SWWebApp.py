@@ -7,7 +7,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
-import random
 import matplotlib.pyplot as plt
 from math import sqrt
 from streamlit_option_menu import option_menu
@@ -57,12 +56,9 @@ data =loadCSVDataFile("product_images.csv")
 
 import csv
 import ast
-import random
-import os
 import matplotlib.pyplot as plt
 import pandas as pd
-from timeit import repeat     
-from functools import partial 
+
 
 
 # Load the two CSV files into pandas DataFrames
