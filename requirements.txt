@@ -3,3 +3,4 @@ pandas
 numpy
 matplotlib
 pybase64
+streamlit_option_menu
