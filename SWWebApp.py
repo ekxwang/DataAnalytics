@@ -12,6 +12,7 @@ from math import sqrt
 from streamlit_option_menu import option_menu
 import csv
 import io
+import ast
 
 def tryAsNumber(string):
     try:
