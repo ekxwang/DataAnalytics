@@ -2,7 +2,7 @@ streamlit
 pandas
 numpy
 image
-matplotlib.pyplot
+matplotlib
 math
 csv
 io
