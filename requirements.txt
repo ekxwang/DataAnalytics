@@ -2,5 +2,5 @@ streamlit
 pandas
 numpy
 matplotlib
-ast==0.0.2
+ast
 base64
