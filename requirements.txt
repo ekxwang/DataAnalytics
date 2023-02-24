@@ -1,11 +1,9 @@
+bash
+Copy code
 streamlit
 pandas
 numpy
-image
 matplotlib
-math
-csv
-io
 option_menu
 ast
 base64
