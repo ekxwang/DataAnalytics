@@ -1,0 +1,13 @@
+streamlit
+pandas
+numpy
+PIL
+random
+matplotlib.pyplot
+math
+csv
+io
+streamlit_option_menu
+ast
+os
+base64
