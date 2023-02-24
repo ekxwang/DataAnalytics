@@ -572,7 +572,9 @@ elif selected == "Reviews":
     st.image(logo1)
     st.title("Customer Reviews")
     st.write("Here are what our wonderful customers have to say about us:")
-    st.write (" Ethan Wang - I didn't know what to buy my mum for her birthday but this amazing k means algorithm helped me find the perfect gift !!!", "Eileen - the product reccomendation on this website is amazing", "Joe Banks - I wanted to buy a t-shirt from this website but thanks to the product reccomendation system I ended up buying 4 t-shirts, 3 bags, 2 pairs of shoes and a pair of trousers")
+    st.write (" Ethan Wang - I didn't know what to buy my mum for her birthday but this amazing k means algorithm helped me find the perfect gift !!!") 
+    st.write ("Eileen - the product reccomendation on this website is amazing")
+    st.write ("Joe Banks - I wanted to buy a t-shirt from this website but thanks to the product reccomendation system I ended up buying 4 t-shirts, 3 bags, 2 pairs of shoes and a pair of trousers")
 
 elif selected == "Contact Us":
     st.image(logo1)
