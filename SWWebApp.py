@@ -53,7 +53,7 @@ def get_neighbors(train, test_row, num_neighbors):
     return neighbors
     pass
 
-data =loadCSVDataFile("Desktop\Web app\product_images.csv")
+data =loadCSVDataFile("product_images.csv")
 
 import csv
 import ast
@@ -66,8 +66,8 @@ from functools import partial
 
 
 # Load the two CSV files into pandas DataFrames
-df1 = pd.read_csv("Desktop\Web app\clusterdata1.csv")
-df2 = pd.read_csv("Desktop\Web app\clusterdata2.csv")
+df1 = pd.read_csv("clusterdata1.csv")
+df2 = pd.read_csv("clusterdata2.csv")
 
 # Concatenate the two DataFrames
 df = pd.concat([df1, df2], ignore_index=True)
@@ -179,7 +179,7 @@ with st.sidebar:
         default_index=default_index
     )
 
-logo1=Image.open("Desktop\Web app\logo1.png")
+logo1=Image.open("logo1.png")
 
 # Display information based on the selected option
 if selected == "Home":
@@ -198,7 +198,7 @@ if selected == "Home":
         """,
         unsafe_allow_html=True
         )
-    add_bg_from_local("Desktop\Web app\landing.png")    
+    add_bg_from_local("landing.png")    
 
 
 
@@ -256,7 +256,7 @@ elif selected == "Products":
             return buf.getvalue()
             pass
         
-        Trousers=Image.open("Desktop/Web app/trousers.png")
+        Trousers=Image.open("trousers.png")
         st.image(Trousers)
         st.write("Here are our Trousers:")
         clusterset1 = FinalCluster[1]
@@ -328,7 +328,7 @@ elif selected == "Products":
             return buf.getvalue()
             pass
         
-        Dress=Image.open("Desktop/Web app/dress.png")
+        Dress=Image.open("dress.png")
         st.image(Dress)
         
         st.write("Here are our Dress:")
@@ -504,7 +504,7 @@ elif selected == "Products":
             return buf.getvalue()
             pass
         
-        Bag=Image.open("Desktop/Web app/bags.png")
+        Bag=Image.open("bags.png")
         st.image(Bag)
         st.write("Here are our Bags:")
         clusterset8 = FinalCluster[8]
@@ -568,7 +568,7 @@ elif selected == "About Us":
     st.image(logo1)
     st.title("About Sapphire")
     st.write("We are a clothing store that specializes in high-quality sustainable clothing at affordable prices. We aim to give customers a wider range of options because of our built in reccomendation system.")
-    Aboutusimage=Image.open('Desktop/Web app/rename.png')
+    Aboutusimage=Image.open('rename.png')
     st.image(Aboutusimage)
 
 
