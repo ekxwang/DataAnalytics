@@ -55,7 +55,6 @@ def get_neighbors(train, test_row, num_neighbors):
 data =loadCSVDataFile("product_images.csv")
 
 import csv
-import ast
 import matplotlib.pyplot as plt
 import pandas as pd
 
