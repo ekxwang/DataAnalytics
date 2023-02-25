@@ -362,6 +362,9 @@ elif selected == "Products":
             return buf.getvalue()
             pass
         
+        Coatss=Image.open("coats.png")
+        st.image(Coatss)
+        
         st.write("Here are our Coats:")
         clusterset4 = FinalCluster[4]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
@@ -465,6 +468,10 @@ elif selected == "Products":
             buf.seek(0)
             return buf.getvalue()
             pass
+        
+        Sneakerss=Image.open("sneakers.png")
+        st.image(Sneakerss)
+        
         st.write("Here are our Sneakers:")
         clusterset7 = FinalCluster[7]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
