@@ -61,16 +61,6 @@ import pandas as pd
 
 
 
-# Load the two CSV files into pandas DataFrames
-df1 = pd.read_csv("clusterdata1.csv")
-df2 = pd.read_csv("clusterdata2.csv")
-
-# Concatenate the two DataFrames
-df = pd.concat([df1, df2], ignore_index=True)
-
-# Save the combined DataFrame as a CSV file
-df.to_csv('clusters.csv', index=False)
-
 def csvToClusters(file_path):
     clusters_dict = {}
     cluster_indices_dict = {}
