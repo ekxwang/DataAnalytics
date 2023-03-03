@@ -55,10 +55,7 @@ def get_neighbors(train, test_row, num_neighbors):
 
 data =loadCSVDataFile("product_images.csv")
 
-import csv
 import matplotlib.pyplot as plt
-import pandas as pd
-
 
 
 def csvToClusters(file_path):
@@ -77,45 +74,8 @@ def csvToClusters(file_path):
             cluster_indices_dict.setdefault(cluster_num, []).append(indices)
 
     return clusters_dict, cluster_indices_dict
-
-def finalizeClusters():
-    FinalCluster = {}
-    FinalClusterIndice = {}
-    
-    FinalCluster[0] = Cluster[7] + Cluster[15] # T-Shirts
-    FinalClusterIndice[0] = ClusterIndice[7] + ClusterIndice[15]
-    
-    FinalCluster[1] = Cluster[13] # Trouser
-    FinalClusterIndice[1] = ClusterIndice[13]
-    
-    FinalCluster[2] = Cluster[4] + Cluster[11] # Pullover
-    FinalClusterIndice[2] = ClusterIndice[4] + ClusterIndice[11]
-    
-    FinalCluster[3] = Cluster[10] + Cluster[6] # Dress
-    FinalClusterIndice[3] = ClusterIndice[10] + ClusterIndice[6]
-    
-    FinalCluster[4] = Cluster[12] # Coat
-    FinalClusterIndice[4] = ClusterIndice[12] 
-    
-    FinalCluster[5] = Cluster[9] # Sandals
-    FinalClusterIndice[5] = ClusterIndice[9]
-    
-    FinalCluster[6] = Cluster[0] # Shirt
-    FinalClusterIndice[6] = ClusterIndice[0]
-    
-    FinalCluster[7] = Cluster[1] # Sneaker
-    FinalClusterIndice[7] = ClusterIndice[1] 
-    
-    FinalCluster[8] = Cluster[2] + Cluster[5] + Cluster[14] # Bag
-    FinalClusterIndice[8] = ClusterIndice[2] + ClusterIndice[5] + ClusterIndice[14] 
-    
-    FinalCluster[9] = Cluster[3] # Ankleboot
-    FinalClusterIndice[9] = ClusterIndice[3] 
-    
-    return FinalCluster, FinalClusterIndice
-                    
-Cluster, ClusterIndice = csvToClusters("clusters.csv")
-FinalCluster, FinalClusterIndice = finalizeClusters()
+               
+FinalCluster, FinalClusterIndice = csvToClusters("clusters.csv")
 
 def graphImage(imageNumber):
 
