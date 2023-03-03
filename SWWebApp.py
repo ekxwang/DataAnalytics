@@ -58,23 +58,25 @@ data =loadCSVDataFile("product_images.csv")
 import matplotlib.pyplot as plt
 
 
-def csvToClusters(file_path):
-    clusters_dict = {}
-    cluster_indices_dict = {}
+def read_clusters_from_csv(csv_file_name):
+    Cluster = {}
+    ClusterIndice = {}
 
-    with open(file_path, mode='r') as csv_file:
-        reader = csv.reader(csv_file)
-        next(reader)  # skip header row
+    with open(csv_file_name, mode='r') as csv_file:
+        reader = csv.DictReader(csv_file)
         for row in reader:
-            cluster_num = int(row[0])
-            coordinates = tuple(map(float, row[1].strip("()").split(", ")))
-            indices_str = row[2]
-            indices = ast.literal_eval(indices_str)
-            clusters_dict.setdefault(cluster_num, []).append(coordinates)
-            cluster_indices_dict.setdefault(cluster_num, []).append(indices)
+            label = int(row['Cluster'])
+            coord = tuple(map(float, row['Coordinate'][1:-1].split(',')))
+            indice = int(row['Indice'])
 
-    return clusters_dict, cluster_indices_dict
-               
+            if label not in Cluster:
+                Cluster[label] = []
+                ClusterIndice[label] = []
+
+            Cluster[label].append(coord)
+            ClusterIndice[label].append(indice)
+
+    return Cluster, ClusterIndice
 FinalCluster, FinalClusterIndice = csvToClusters("clusters.csv")
 
 def graphImage(imageNumber):
