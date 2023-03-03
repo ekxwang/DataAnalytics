@@ -57,6 +57,15 @@ data =loadCSVDataFile("product_images.csv")
 
 import matplotlib.pyplot as plt
 
+# Load the two CSV files into pandas DataFrames
+df1 = pd.read_csv("clusterdata1.csv")
+df2 = pd.read_csv("clusterdata2.csv")
+
+# Concatenate the two DataFrames
+df = pd.concat([df1, df2], ignore_index=True)
+
+# Save the combined DataFrame as a CSV file
+df.to_csv('clusters.csv', index=False)
 
 def csvToClusters(csv_file_name):
     Cluster = {}
