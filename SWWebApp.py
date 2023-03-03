@@ -151,7 +151,7 @@ if selected == "Home":
 elif selected == "Products":
     st.image(logo1)
     st.title("Our Products")
-    product_options = ["T-shirts", "Trousers", "Pullover", "Dress", "Coat", "Sandal", "Shirt", "Sneaker", "Bag", "Ankle Boot"]
+    product_options = ["T-shirts", "Trousers", "Outerwear", "Sneaker/Sandal", "Boots", "Bags", "Dresses"]
     selected_product = st.selectbox("Select a product", product_options)
     if selected_product == "T-shirts":
 
@@ -226,7 +226,7 @@ elif selected == "Products":
         else:
             st.write("End of results")
             
-    elif selected_product == "Pullover":
+    elif selected_product == "Outerwear":
         @st.cache_resource
         def get_image2(image_idx):
             row_pixels = clusterset2[image_idx]
@@ -239,7 +239,7 @@ elif selected == "Products":
             return buf.getvalue()
             pass
         
-        st.write("Here are our Pullovers:")
+        st.write("Here are our Outerwear products:")
         clusterset2 = FinalCluster[2]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
 
@@ -261,7 +261,7 @@ elif selected == "Products":
         else:
             st.write("End of results")
           
-    elif selected_product == "Dress":
+    elif selected_product == "Sneakers/Sandals":
         @st.cache_resource
         def get_image3(image_idx):
             row_pixels = clusterset3[image_idx]
@@ -273,11 +273,9 @@ elif selected == "Products":
             buf.seek(0)
             return buf.getvalue()
             pass
+    
         
-        Dress=Image.open("dress.png")
-        st.image(Dress)
-        
-        st.write("Here are our Dress:")
+        st.write("Here are our Sneakers and Sandals:")
         clusterset3 = FinalCluster[3]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
 
@@ -299,7 +297,7 @@ elif selected == "Products":
         else:
             st.write("End of results")
           
-    elif selected_product == "Coat":
+    elif selected_product == "Boots":
         @st.cache_resource
         def get_image4(image_idx):
             row_pixels = clusterset4[image_idx]
@@ -312,10 +310,8 @@ elif selected == "Products":
             return buf.getvalue()
             pass
         
-        Coatss=Image.open("coats.png")
-        st.image(Coatss)
         
-        st.write("Here are our Coats:")
+        st.write("Here are our Boots:")
         clusterset4 = FinalCluster[4]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
 
@@ -337,7 +333,7 @@ elif selected == "Products":
         else:
             st.write("End of results")
           
-    elif selected_product == "Sandal":
+    elif selected_product == "Bags":
         @st.cache_resource
         def get_image5(image_idx):
             row_pixels = clusterset5[image_idx]
@@ -349,8 +345,10 @@ elif selected == "Products":
             buf.seek(0)
             return buf.getvalue()
             pass
-        
-        st.write("Here are our Sandals:")
+       
+        Bag=Image.open("bags.png")
+        st.image(Bag)
+        st.write("Here are our Bags:")
         clusterset5 = FinalCluster[5]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
 
@@ -372,7 +370,7 @@ elif selected == "Products":
         else:
             st.write("End of results")
           
-    elif selected_product == "Shirt":
+    elif selected_product == "Dresses":
         @st.cache_resource
         def get_image6(image_idx):
             row_pixels = clusterset6[image_idx]
@@ -384,7 +382,10 @@ elif selected == "Products":
             buf.seek(0)
             return buf.getvalue()
             pass
-        st.write("Here are our Shirts:")
+        
+        Dressess=Image.open("dress.png")
+        st.image(Dressess)
+        st.write("Here are our Dresses:")
         clusterset6 = FinalCluster[6]
         START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
 
@@ -406,114 +407,7 @@ elif selected == "Products":
         else:
             st.write("End of results")
           
-    elif selected_product == "Sneaker":
-        @st.cache_resource
-        def get_image7(image_idx):
-            row_pixels = clusterset7[image_idx]
-            image = np.array(row_pixels).reshape((28, 28))
-            plt.imshow(image, cmap='binary')
-            plt.axis('off')
-            buf = io.BytesIO()
-            plt.savefig(buf, format='png')
-            buf.seek(0)
-            return buf.getvalue()
-            pass
-        
-        Sneakerss=Image.open("sneakers.png")
-        st.image(Sneakerss)
-        
-        st.write("Here are our Sneakers:")
-        clusterset7 = FinalCluster[7]
-        START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
-
-        num_items = len(clusterset7)
-
-        cols = st.columns(4)
-        for n in range(START_INDEX, min(num_items, START_INDEX + 40)):
-            with cols[n % 4]:
-                st.image(get_image7(n))
-                if st.button('Show similar items', n):
-                    neighbors = get_neighbors(clusterset7, clusterset7[n], 5)
-                    for i in range(5):
-                        st.image(get_image7(neighbors[i]), use_column_width=True)
-                    st.write(":red[Continue Browsing]")
-
-        if START_INDEX + 40 < num_items:
-            next_index = START_INDEX + 40
-            st.button("Load More", on_click=lambda: st.experimental_set_query_params(start_index=str(next_index)))
-        else:
-            st.write("End of results")
-          
-    elif selected_product == "Bag":
-        @st.cache_resource
-        def get_image8(image_idx):
-            row_pixels = clusterset8[image_idx]
-            image = np.array(row_pixels).reshape((28, 28))
-            plt.imshow(image, cmap='binary')
-            plt.axis('off')
-            buf = io.BytesIO()
-            plt.savefig(buf, format='png')
-            buf.seek(0)
-            return buf.getvalue()
-            pass
-        
-        Bag=Image.open("bags.png")
-        st.image(Bag)
-        st.write("Here are our Bags:")
-        clusterset8 = FinalCluster[8]
-        START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
-
-        num_items = len(clusterset8)
-
-        cols = st.columns(4)
-        for n in range(START_INDEX, min(num_items, START_INDEX + 40)):
-            with cols[n % 4]:
-                st.image(get_image8(n))
-                if st.button('Show similar items', n):
-                    neighbors = get_neighbors(clusterset8, clusterset8[n], 5)
-                    for i in range(5):
-                        st.image(get_image8(neighbors[i]), use_column_width=True)
-                    st.write(":red[Continue Browsing]")
-
-        if START_INDEX + 40 < num_items:
-            next_index = START_INDEX + 40
-            st.button("Load More", on_click=lambda: st.experimental_set_query_params(start_index=str(next_index)))
-        else:
-            st.write("End of results")
-          
-    elif selected_product == "Ankle Boot":
-        @st.cache_resource
-        def get_image9(image_idx):
-            row_pixels = clusterset9[image_idx]
-            image = np.array(row_pixels).reshape((28, 28))
-            plt.imshow(image, cmap='binary')
-            plt.axis('off')
-            buf = io.BytesIO()
-            plt.savefig(buf, format='png')
-            buf.seek(0)
-            return buf.getvalue()
-            pass
-        st.write("Here are our Ankle Boots:")
-        clusterset9 = FinalCluster[9]
-        START_INDEX = int(st.experimental_get_query_params().get("start_index", "0")[0])
-
-        num_items = len(clusterset9)
-
-        cols = st.columns(4)
-        for n in range(START_INDEX, min(num_items, START_INDEX + 40)):
-            with cols[n % 4]:
-                st.image(get_image9(n))
-                if st.button('Show similar items', n):
-                    neighbors = get_neighbors(clusterset9, clusterset9[n], 5)
-                    for i in range(5):
-                        st.image(get_image9(neighbors[i]), use_column_width=True)
-                    st.write(":red[Continue Browsing]")
-
-        if START_INDEX + 40 < num_items:
-            next_index = START_INDEX + 40
-            st.button("Load More", on_click=lambda: st.experimental_set_query_params(start_index=str(next_index)))
-        else:
-            st.write("End of results")
+    
           
     
 
