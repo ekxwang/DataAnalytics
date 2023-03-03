@@ -58,7 +58,7 @@ data =loadCSVDataFile("product_images.csv")
 import matplotlib.pyplot as plt
 
 
-def read_clusters_from_csv(csv_file_name):
+def csvToClusters(csv_file_name):
     Cluster = {}
     ClusterIndice = {}
 
